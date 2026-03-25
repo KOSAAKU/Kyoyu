@@ -16,5 +16,7 @@ def derive_key(uid, salt):
     return base64.urlsafe_b64encode(key).decode('utf-8') #Transforme les bytes de la clé en une chaîne base64 "URL-safe" (sans +//) lisible par Fernet.
 
 def encrypt(message, key):
+    return Fernet(key).encrypt(message.encode()).decode('utf-8') #Chiffre un message en utilisant la clé dérivée, encode le message en bytes, chiffre avec Fernet, puis décode le résultat en UTF-8 pour une chaîne lisible.
 
 def decrypt(message, key):
+    return Fernet(key).decrypt(message.encode()).decode('utf-8') #Déchiffre un message chiffré en utilisant la clé dérivée, encode le message en bytes, déchiffre avec Fernet, puis décode le résultat en UTF-8 pour une chaîne lisible.
