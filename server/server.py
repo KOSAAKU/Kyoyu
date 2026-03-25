@@ -1,4 +1,8 @@
 import socket
+import threading
+
+def handle_client(conn, addr):
+    print('nouvelle connexion')
 
 addr = ("", 8080)
 if socket.has_dualstack_ipv6():
