@@ -49,9 +49,6 @@ def main():
 
     
     response = json.loads(sock.recv(4096).decode())
-    if response["status"] != "success":
-        print(f"Erreur : {response['message']}")
-        return
     
     key = derive_key(uid, bytes.fromhex(salt))
     
